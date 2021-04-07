@@ -1,7 +1,8 @@
-package com.jquiroga.challenge
+package com.jquiroga.challenge.features.searchsong.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.jquiroga.challenge.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
