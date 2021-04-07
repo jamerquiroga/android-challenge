@@ -4,6 +4,7 @@ import com.jquiroga.data.datasource.remote.source.SongPagingRemoteDataSource
 import com.jquiroga.data.mapper.song.SongRemoteMapper
 import com.jquiroga.data.repository.SongDataRepository
 import com.jquiroga.domain.repository.SongRepository
+import com.jquiroga.domain.usecase.SearchSongsByTermUseCase
 import org.koin.dsl.module
 
 val songModule = module {
@@ -21,4 +22,6 @@ val songModule = module {
     single<SongRepository> {
         SongDataRepository()
     }
+
+    factory { SearchSongsByTermUseCase(songRepository = get()) }
 }
