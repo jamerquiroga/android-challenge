@@ -26,19 +26,27 @@ class SongLoadStateAdapter(private val retry: () -> Unit) :
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(loadState: LoadState) {
-            when (loadState) {
-                is LoadState.Loading -> {
-                    binding.progressLoading.visible()
-                    binding.buttonRetry.gone()
-                }
-                else -> {
-                    binding.buttonRetry.visible()
-                    binding.progressLoading.gone()
-                }
-            }
+            binding.run {
 
-            binding.buttonRetry.setOnClickListener {
-                retry.invoke()
+                when (loadState) {
+                    is LoadState.Loading -> {
+                        progressLoading.visible()
+                        buttonRetry.gone()
+                        textErrorMessage.gone()
+                    }
+                    is LoadState.Error -> {
+                        textErrorMessage.visible()
+                        textErrorMessage.text = loadState.error.localizedMessage
+                    }
+                    else -> {
+                        buttonRetry.visible()
+                        progressLoading.gone()
+                    }
+                }
+
+                buttonRetry.setOnClickListener {
+                    retry.invoke()
+                }
             }
         }
 

@@ -5,7 +5,7 @@
     <dimen name="margin_size_20dp">20dp</dimen>
 
     <!--Height-->
-    <dimen name="height_size_100dp">100dp</dimen>
+    <dimen name="height_size_150dp">150dp</dimen>
 
     <!--Width-->
     <dimen name="width_size_100dp">100dp</dimen>
