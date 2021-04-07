@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Challenge</string>
+
+    <!--Search Song-->
+    <string name="search_song_write_a_song">Escriba una canción</string>
+    <string name="search_song_retry">Reintentar</string>
+
 </resources>
