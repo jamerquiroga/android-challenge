@@ -1,6 +1,6 @@
-package com.jquiroga.challenge.features.searchsong.model
+package com.jquiroga.domain.entity
 
-data class SongModel(
+class Song(
     val code: Int,
     val name: String,
     val albumName: String,

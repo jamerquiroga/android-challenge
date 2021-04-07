@@ -1,4 +1,4 @@
-package com.jquiroga.data.datasource.remote.api
+package com.jquiroga.data.datasource.remote.api.client
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.jquiroga.data.BuildConfig

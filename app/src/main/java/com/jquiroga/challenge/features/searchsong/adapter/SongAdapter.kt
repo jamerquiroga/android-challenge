@@ -13,7 +13,7 @@ class SongAdapter : PagingDataAdapter<SongModel, SongAdapter.SongViewHolder>(REP
     companion object {
         private val REPO_COMPARATOR = object : DiffUtil.ItemCallback<SongModel>() {
             override fun areItemsTheSame(oldItem: SongModel, newItem: SongModel): Boolean =
-                oldItem.songCode == newItem.songCode
+                oldItem.code == newItem.code
 
             override fun areContentsTheSame(oldItem: SongModel, newItem: SongModel): Boolean =
                 oldItem == newItem
@@ -42,11 +42,11 @@ class SongAdapter : PagingDataAdapter<SongModel, SongAdapter.SongViewHolder>(REP
 
         fun bind(songModel: SongModel) {
             binding.run {
-                textSongName.text = songModel.songName
+                textSongName.text = songModel.name
                 textBandName.text = songModel.bandName
 
                 root.setOnClickListener {
-                    songAdapterListener?.onClickSong(songModel.songCode)
+                    songAdapterListener?.onClickSong(songModel.code)
                 }
             }
         }
