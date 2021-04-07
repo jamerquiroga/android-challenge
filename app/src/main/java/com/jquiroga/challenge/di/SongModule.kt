@@ -1,15 +1,19 @@
 package com.jquiroga.challenge.di
 
+import com.jquiroga.challenge.features.searchsong.mapper.SongMapper
+import com.jquiroga.challenge.features.searchsong.view.SearchSongViewModel
 import com.jquiroga.data.datasource.remote.source.SongPagingRemoteDataSource
 import com.jquiroga.data.mapper.song.SongRemoteMapper
 import com.jquiroga.data.repository.SongDataRepository
 import com.jquiroga.domain.repository.SongRepository
 import com.jquiroga.domain.usecase.SearchSongsByTermUseCase
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val songModule = module {
 
     factory { SongRemoteMapper() }
+    factory { SongMapper() }
 
     factory { (searchTerm: String) ->
         SongPagingRemoteDataSource(
@@ -24,4 +28,11 @@ val songModule = module {
     }
 
     factory { SearchSongsByTermUseCase(songRepository = get()) }
+
+    viewModel {
+        SearchSongViewModel(
+            searchSongsByTermUseCase = get(),
+            songMapper = get()
+        )
+    }
 }
