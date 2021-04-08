@@ -9,8 +9,6 @@ class SearchHistoryAdapter : RecyclerView.Adapter<SearchHistoryAdapter.ViewHolde
 
     private val searchHistory = mutableListOf<String>()
 
-    private var searchHistoryAdapterListener: SearchHistoryAdapterListener? = null
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
         ItemSearchHistoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
     )
@@ -26,18 +24,11 @@ class SearchHistoryAdapter : RecyclerView.Adapter<SearchHistoryAdapter.ViewHolde
         notifyDataSetChanged()
     }
 
-    fun setListeners(listener: SearchHistoryAdapterListener) {
-        searchHistoryAdapterListener = listener
-    }
-
     inner class ViewHolder(private val binding: ItemSearchHistoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(searchTerm: String) {
             binding.textSearchTerm.text = searchTerm
-            binding.root.setOnClickListener {
-                searchHistoryAdapterListener?.onClickSearch(searchTerm)
-            }
         }
     }
 }
