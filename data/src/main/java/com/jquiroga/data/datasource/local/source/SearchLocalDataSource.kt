@@ -3,10 +3,11 @@ package com.jquiroga.data.datasource.local.source
 import com.jquiroga.data.datasource.local.db.dao.SearchDao
 import com.jquiroga.data.datasource.local.db.entity.SearchRoom
 
-class SearchLocalDataSource(private val searchDao: SearchDao) {
+class SearchLocalDataSource(
+    private val searchDao: SearchDao
+) {
 
-    suspend fun saveSearchTerm(searchTerm: String) {
-        val searchRoom = SearchRoom(searchTerm)
+    suspend fun saveSearchTerm(searchRoom: SearchRoom) {
         searchDao.insert(searchRoom)
     }
 
