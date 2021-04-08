@@ -7,7 +7,7 @@ import com.jquiroga.challenge.databinding.ItemSearchHistoryBinding
 
 class SearchHistoryAdapter : RecyclerView.Adapter<SearchHistoryAdapter.ViewHolder>() {
 
-    private val searchHistoryList = mutableListOf<String>()
+    private val searchHistory = mutableListOf<String>()
 
     private var searchHistoryAdapterListener: SearchHistoryAdapterListener? = null
 
@@ -16,13 +16,13 @@ class SearchHistoryAdapter : RecyclerView.Adapter<SearchHistoryAdapter.ViewHolde
     )
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(searchHistoryList[position])
+        holder.bind(searchHistory[position])
     }
 
-    override fun getItemCount(): Int = searchHistoryList.size
+    override fun getItemCount(): Int = searchHistory.size
 
     fun addSearchHistory(values: List<String>) {
-        searchHistoryList.addAll(values)
+        searchHistory.addAll(values)
         notifyDataSetChanged()
     }
 

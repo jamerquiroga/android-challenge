@@ -2,6 +2,7 @@ package com.jquiroga.challenge.core.platform
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 
 abstract class BaseFragment: Fragment() {
@@ -15,5 +16,9 @@ abstract class BaseFragment: Fragment() {
     open fun initUI() = Unit
 
     open fun initObservers() = Unit
+
+    fun showMessage(message: String) {
+        Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
+    }
 
 }

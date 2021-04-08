@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -14,7 +13,6 @@ import com.jquiroga.challenge.core.extensions.gone
 import com.jquiroga.challenge.core.extensions.visible
 import com.jquiroga.challenge.core.platform.BaseFragment
 import com.jquiroga.challenge.databinding.FragmentSearchSongBinding
-import com.jquiroga.challenge.features.main.view.MainActivity
 import com.jquiroga.challenge.features.searchsong.adapter.SongAdapterListener
 import com.jquiroga.challenge.features.searchsong.adapter.SongLoadStateAdapter
 import com.jquiroga.challenge.features.searchsong.adapter.SongsAdapter
@@ -40,8 +38,6 @@ class SearchSongFragment : BaseFragment() {
     private val songsAdapter by lazy { SongsAdapter() }
 
     private var searchJob: Job? = null
-
-    private val mainActivity by lazy { activity as MainActivity }
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -117,10 +113,6 @@ class SearchSongFragment : BaseFragment() {
         viewModel.searchSongs(searchTerm).collectLatest { pagingData ->
             songsAdapter.submitData(pagingData)
         }
-    }
-
-    private fun showMessage(message: String) {
-        Toast.makeText(mainActivity, message, Toast.LENGTH_SHORT).show()
     }
 
     private fun goToSongDetailFragment(songModel: SongModel) {

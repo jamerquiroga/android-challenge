@@ -13,4 +13,8 @@
     <string name="detail_song_album_name">Nombre del álbum:</string>
     <string name="detail_song_band_name">Nombre de la banda:</string>
 
+    <!--Search History-->
+    <string name="search_history_title">Historial de búsquedas</string>
+    <string name="search_history_your_history_is_empty">Tu historial está vacío</string>
+
 </resources>

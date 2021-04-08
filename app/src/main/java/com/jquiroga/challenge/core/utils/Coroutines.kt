@@ -1,9 +1,6 @@
 package com.jquiroga.challenge.core.utils
 
-import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import timber.log.Timber
 
 fun CoroutineScope.safeLaunch(
@@ -16,3 +13,8 @@ fun CoroutineScope.safeLaunch(
     }
     return this.launch(exceptionHandler) { bock(this) }
 }
+
+suspend fun <T> CoroutineScope.with(
+    dispatcher: CoroutineDispatcher,
+    block: suspend CoroutineScope.() -> T
+) = withContext(dispatcher) { block() }

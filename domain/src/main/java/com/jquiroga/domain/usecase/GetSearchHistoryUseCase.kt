@@ -4,7 +4,7 @@ import com.jquiroga.domain.repository.SearchRepository
 
 class GetSearchHistoryUseCase(private val searchRepository: SearchRepository) {
 
-    suspend operator fun invoke (): List<String> {
+    suspend operator fun invoke(): List<String> {
         return searchRepository.getAllSearchTerms()
-    } 
+    }
 }
