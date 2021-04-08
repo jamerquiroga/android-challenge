@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jquiroga.challenge">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".application.ChallengeApp"
         android:allowBackup="false"
