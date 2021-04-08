@@ -4,5 +4,7 @@
     <!--Search Song-->
     <string name="search_song_write_a_song">Escriba una canción</string>
     <string name="search_song_retry">Reintentar</string>
+    <string name="search_song_error_finding_song">Ocurrió un error al buscar la canción</string>
+    <string name="search_song_no_results_for_your_search">Sin resultados para tu búsqueda</string>
 
 </resources>

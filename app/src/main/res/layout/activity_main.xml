@@ -24,4 +24,27 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <ProgressBar
+        android:id="@+id/progress_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_search" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_songs"
+        android:layout_width="@dimen/width_size_0dp"
+        android:layout_height="@dimen/height_size_0dp"
+        android:layout_margin="@dimen/margin_size_10dp"
+        app:layoutManager="LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_search"
+        tools:itemCount="4"
+        tools:listitem="@layout/item_song" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

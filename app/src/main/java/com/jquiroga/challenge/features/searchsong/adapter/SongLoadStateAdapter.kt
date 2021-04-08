@@ -37,9 +37,11 @@ class SongLoadStateAdapter(private val retry: () -> Unit) :
                     is LoadState.Error -> {
                         textErrorMessage.visible()
                         textErrorMessage.text = loadState.error.localizedMessage
-                    }
-                    else -> {
                         buttonRetry.visible()
+                        progressLoading.gone()
+                    }
+
+                    is LoadState.NotLoading -> {
                         progressLoading.gone()
                     }
                 }

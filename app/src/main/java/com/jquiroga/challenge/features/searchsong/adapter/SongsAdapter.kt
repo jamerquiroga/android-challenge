@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.jquiroga.challenge.databinding.ItemSongBinding
 import com.jquiroga.challenge.features.searchsong.model.SongModel
 
-class SongAdapter : PagingDataAdapter<SongModel, SongAdapter.SongViewHolder>(REPO_COMPARATOR) {
+class SongsAdapter : PagingDataAdapter<SongModel, SongsAdapter.SongViewHolder>(REPO_COMPARATOR) {
 
     companion object {
         private val REPO_COMPARATOR = object : DiffUtil.ItemCallback<SongModel>() {
