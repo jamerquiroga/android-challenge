@@ -98,7 +98,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private suspend fun searchSongs(searchTerm: String) {
-        viewModel.searchSongByTerm(searchTerm).collectLatest { pagingData ->
+        viewModel.searchSongs(searchTerm).collectLatest { pagingData ->
             songsAdapter.submitData(pagingData)
         }
     }

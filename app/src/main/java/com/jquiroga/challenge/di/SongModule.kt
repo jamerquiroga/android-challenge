@@ -43,6 +43,7 @@ val songModule = module {
     viewModel {
         SearchSongViewModel(
             searchSongsByTermUseCase = get(),
+            saveSearchTermUseCase = get(),
             songMapper = get()
         )
     }

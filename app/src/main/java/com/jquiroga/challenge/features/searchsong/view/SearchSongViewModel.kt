@@ -8,6 +8,7 @@ import androidx.paging.map
 import com.jquiroga.challenge.core.failure.FailureMapper
 import com.jquiroga.challenge.features.searchsong.mapper.SongMapper
 import com.jquiroga.challenge.features.searchsong.model.SongModel
+import com.jquiroga.domain.usecase.SaveSearchTermUseCase
 import com.jquiroga.domain.usecase.SearchSongsByTermUseCase
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -18,6 +19,7 @@ import kotlinx.coroutines.flow.map
 
 class SearchSongViewModel(
     private val searchSongsByTermUseCase: SearchSongsByTermUseCase,
+    private val saveSearchTermUseCase: SaveSearchTermUseCase,
     private val songMapper: SongMapper,
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : ViewModel() {
@@ -27,7 +29,16 @@ class SearchSongViewModel(
     private val errorMessage: LiveData<String>
         get() = _errorMessage
 
-    suspend fun searchSongByTerm(searchTerm: String): Flow<PagingData<SongModel>> {
+    suspend fun searchSongs(searchTerm: String): Flow<PagingData<SongModel>> {
+        saveSearchTerm(searchTerm)
+        return searchSongsByTerm(searchTerm)
+    }
+
+    private suspend fun saveSearchTerm(searchTerm: String) {
+        saveSearchTermUseCase.invoke(searchTerm)
+    }
+
+    private suspend fun searchSongsByTerm(searchTerm: String): Flow<PagingData<SongModel>> {
         return searchSongsByTermUseCase.invoke(searchTerm).map { pagingData ->
             pagingData.map { songMapper.map(it) }
         }.catch { e -> exceptionHandler(e) }.flowOn(dispatcher)
