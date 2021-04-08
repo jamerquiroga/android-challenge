@@ -37,7 +37,7 @@
     <fragment
         android:id="@+id/searchHistoryFragment"
         android:name="com.jquiroga.challenge.features.searchhistory.view.SearchHistoryFragment"
-        android:label="fragment_search_history"
+        android:label="@string/search_history_title"
         tools:layout="@layout/fragment_search_history" />
 
 </navigation>

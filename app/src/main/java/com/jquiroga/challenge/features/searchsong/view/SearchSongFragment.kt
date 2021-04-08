@@ -92,12 +92,14 @@ class SearchSongFragment : BaseFragment() {
 
                 is LoadState.Loading -> {
                     viewBinding.recyclerSongs.gone()
+                    viewBinding.constraintError.gone()
                     viewBinding.progressLoading.visible()
                 }
 
                 is LoadState.Error -> {
                     showMessage(getString(R.string.search_song_error_finding_song))
                     viewBinding.progressLoading.gone()
+                    viewBinding.constraintError.visible()
                 }
             }
         }
@@ -107,6 +109,10 @@ class SearchSongFragment : BaseFragment() {
                 goToSongDetailFragment(songModel)
             }
         })
+
+        viewBinding.buttonSearchHistory.setOnClickListener {
+            findNavController().navigate(R.id.action_searchSongFragment_to_searchHistoryFragment)
+        }
     }
 
     private suspend fun searchSongs(searchTerm: String) {

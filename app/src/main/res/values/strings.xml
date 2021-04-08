@@ -7,6 +7,8 @@
     <string name="search_song_retry">Reintentar</string>
     <string name="search_song_error_finding_song">Ocurrió un error al buscar la canción</string>
     <string name="search_song_no_results_for_your_search">Sin resultados para tu búsqueda</string>
+    <string name="search_song_unavailable_service_please_check_your_history">Servicio no disponible, por favor consulte su historial</string>
+    <string name="search_song_view_history">Ver historial</string>
 
     <!--Detail Song-->
     <string name="detail_song_title">Detalle de la canción</string>
