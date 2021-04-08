@@ -1,4 +1,4 @@
-package com.jquiroga.challenge.features.searchsong.view
+package com.jquiroga.challenge.features.main.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,7 +8,6 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import com.jquiroga.challenge.R
 import com.jquiroga.challenge.databinding.ActivityMainBinding
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         configNavigation()
     }
 
-    private fun configNavigation(){
+    private fun configNavigation() {
         setSupportActionBar(viewBinding.toolbarMain)
 
         val appBarConfiguration = AppBarConfiguration

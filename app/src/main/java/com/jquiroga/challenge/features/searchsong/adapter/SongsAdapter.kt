@@ -46,7 +46,7 @@ class SongsAdapter : PagingDataAdapter<SongModel, SongsAdapter.SongViewHolder>(R
                 textBandName.text = songModel.bandName
 
                 root.setOnClickListener {
-                    songAdapterListener?.onClickSong(songModel.code)
+                    songAdapterListener?.onClickSong(songModel)
                 }
             }
         }

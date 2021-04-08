@@ -7,14 +7,18 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.jquiroga.challenge.R
 import com.jquiroga.challenge.core.extensions.gone
 import com.jquiroga.challenge.core.extensions.visible
 import com.jquiroga.challenge.core.platform.BaseFragment
 import com.jquiroga.challenge.databinding.FragmentSearchSongBinding
+import com.jquiroga.challenge.features.main.view.MainActivity
+import com.jquiroga.challenge.features.searchsong.adapter.SongAdapterListener
 import com.jquiroga.challenge.features.searchsong.adapter.SongLoadStateAdapter
 import com.jquiroga.challenge.features.searchsong.adapter.SongsAdapter
+import com.jquiroga.challenge.features.searchsong.model.SongModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
@@ -40,8 +44,8 @@ class SearchSongFragment : BaseFragment() {
     private val mainActivity by lazy { activity as MainActivity }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View {
         _viewBinding = FragmentSearchSongBinding.inflate(inflater, container, false)
         return viewBinding.root
@@ -51,9 +55,9 @@ class SearchSongFragment : BaseFragment() {
         initListeners()
 
         viewBinding.recyclerSongs.adapter =
-            songsAdapter.withLoadStateFooter(footer = SongLoadStateAdapter {
-                songsAdapter.retry()
-            })
+                songsAdapter.withLoadStateFooter(footer = SongLoadStateAdapter {
+                    songsAdapter.retry()
+                })
     }
 
     private fun initListeners() {
@@ -101,6 +105,12 @@ class SearchSongFragment : BaseFragment() {
                 }
             }
         }
+
+        songsAdapter.setListener(object : SongAdapterListener {
+            override fun onClickSong(songModel: SongModel) {
+                goToSongDetailFragment(songModel)
+            }
+        })
     }
 
     private suspend fun searchSongs(searchTerm: String) {
@@ -111,6 +121,11 @@ class SearchSongFragment : BaseFragment() {
 
     private fun showMessage(message: String) {
         Toast.makeText(mainActivity, message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun goToSongDetailFragment(songModel: SongModel) {
+        val direction = SearchSongFragmentDirections.actionSearchSongFragmentToSongDetailFragment(songModel)
+        findNavController().navigate(direction)
     }
 
 }
