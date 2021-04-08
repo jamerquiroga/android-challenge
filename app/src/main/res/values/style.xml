@@ -9,6 +9,7 @@
     </style>
 
     <style name="Text.SubTitle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textStyle">italic</item>
         <item name="android:textSize">@dimen/text_size_16sp</item>
         <item name="android:ellipsize">end</item>
         <item name="android:maxLines">1</item>

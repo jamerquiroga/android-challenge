@@ -9,6 +9,25 @@
         android:id="@+id/searchSongFragment"
         android:name="com.jquiroga.challenge.features.searchsong.view.SearchSongFragment"
         android:label="@string/search_song_title"
-        tools:layout="@layout/fragment_search_song" />
+        tools:layout="@layout/fragment_search_song">
+
+        <action
+            android:id="@+id/action_searchSongFragment_to_songDetailFragment"
+            app:destination="@id/songDetailFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/songDetailFragment"
+        android:name="com.jquiroga.challenge.features.songdetail.view.SongDetailFragment"
+        android:label="@string/detail_song_title"
+        tools:layout="@layout/fragment_song_detail">
+
+        <argument
+            android:name="song"
+            app:argType="com.jquiroga.challenge.features.searchsong.model.SongModel"
+            app:nullable="false" />
+
+    </fragment>
 
 </navigation>

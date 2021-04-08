@@ -8,4 +8,9 @@
     <string name="search_song_error_finding_song">Ocurrió un error al buscar la canción</string>
     <string name="search_song_no_results_for_your_search">Sin resultados para tu búsqueda</string>
 
+    <!--Detail Song-->
+    <string name="detail_song_title">Detalle de la canción</string>
+    <string name="detail_song_album_name">Nombre del álbum:</string>
+    <string name="detail_song_band_name">Nombre de la banda:</string>
+
 </resources>
