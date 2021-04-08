@@ -6,45 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".features.searchsong.view.MainActivity">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_layout_search"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_size_10dp"
-        android:hint="@string/search_song_write_a_song"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/text_input_edit_search"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar_main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-    <ProgressBar
-        android:id="@+id/progress_loading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_search" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_songs"
+    <fragment
+        android:id="@+id/fragment_nav_host"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="@dimen/width_size_0dp"
         android:layout_height="@dimen/height_size_0dp"
-        android:layout_margin="@dimen/margin_size_10dp"
-        app:layoutManager="LinearLayoutManager"
+        app:defaultNavHost="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_search"
-        tools:itemCount="4"
-        tools:listitem="@layout/item_song" />
+        app:layout_constraintTop_toBottomOf="@+id/app_bar_container"
+        app:navGraph="@navigation/nav_host_main" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
