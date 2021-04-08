@@ -9,16 +9,16 @@ class SongEntity(
     val code: Int,
 
     @SerialName(FIELD_SONG_NAME)
-    val name: String,
+    val name: String? = null,
 
     @SerialName(FIELD_ALBUM_NAME)
-    val albumName: String,
+    val albumName: String? = null,
 
     @SerialName(FIELD_BAND_NAME)
-    val bandName: String,
+    val bandName: String? = null,
 
     @SerialName(FIELD_IMAGE_URL)
-    val imageUrl: String
+    val imageUrl: String? = null
 ) {
     companion object {
         private const val FIELD_SONG_CODE = "trackId"

@@ -8,9 +8,13 @@ class SongRemoteMapper : SingleMapper<SongEntity, Song>() {
 
     override fun map(value: SongEntity) = Song(
         code = value.code,
-        name = value.name,
-        albumName = value.albumName,
-        bandName = value.bandName,
-        imageUrl = value.imageUrl
+        name = value.name ?: EMPTY,
+        albumName = value.albumName ?: EMPTY,
+        bandName = value.bandName ?: EMPTY,
+        imageUrl = value.imageUrl ?: EMPTY
     )
+
+    companion object {
+        const val EMPTY = ""
+    }
 }

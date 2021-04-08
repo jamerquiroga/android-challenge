@@ -9,13 +9,13 @@ interface SearchApi {
 
     @GET("search")
     suspend fun search(
-        @Query("mediaType") mediaType: String = DEFAULT_MEDIA_TYPE,
+        @Query("media") mediaType: String = DEFAULT_MEDIA_TYPE,
         @Query("term") searchTerm: String,
         @Query("limit") limitPerPage: Int,
         @Query("offset") offset: Int
     ): Response<SearchResponse>
 
     companion object {
-        private const val DEFAULT_MEDIA_TYPE = "song"
+        private const val DEFAULT_MEDIA_TYPE = "music"
     }
 }
