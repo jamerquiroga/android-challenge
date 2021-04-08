@@ -68,6 +68,10 @@ dependencies {
     //Paging 3 library
     implementation 'androidx.paging:paging-runtime-ktx:3.0.0-alpha09'
 
+    //Navigation libraries
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0-alpha02'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.0-alpha02'
+
     //Room libraries
     implementation 'androidx.room:room-runtime:2.2.3'
 
