@@ -9,6 +9,7 @@
 
     <!--Height-->
     <dimen name="height_size_0dp">0dp</dimen>
+    <dimen name="height_size_1dp">1dp</dimen>
     <dimen name="height_size_100dp">100dp</dimen>
     <dimen name="height_size_150dp">150dp</dimen>
 
