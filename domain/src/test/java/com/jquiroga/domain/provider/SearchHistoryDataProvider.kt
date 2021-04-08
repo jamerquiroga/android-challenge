@@ -2,7 +2,7 @@ package com.jquiroga.domain.provider
 
 object SearchHistoryDataProvider {
 
-    fun searchHistoryDummy () = listOf(
+    fun searchHistoryDummy() = listOf(
         "Guns n roses",
         "U2",
         "Aerosmith",
