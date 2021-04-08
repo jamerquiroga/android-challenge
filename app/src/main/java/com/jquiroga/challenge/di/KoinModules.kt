@@ -16,5 +16,6 @@ fun injectModules(app: Application) {
 private val modules = listOf(
     networkModule,
     databaseModule,
+    searchModule,
     songModule
 )
