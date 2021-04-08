@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Text.Title" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_size_20sp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="Text.SubTitle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textStyle">italic</item>
+        <item name="android:textSize">@dimen/text_size_16sp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+</resources>
